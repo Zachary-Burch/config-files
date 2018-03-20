@@ -158,9 +158,9 @@ job_color()
 }
 
 PROMPT_COMMAND='history -a'
-PS1="[\[\$(load_color)\]\A\[${creset}\] "
+PS1="\[\$(load_color)\]\A\[${creset}\] "
 PS1=${PS1}"\[${SU}\]\u\[${creset}\]@\[${CNX}\]\h\[${creset}\] "
-PS1=${PS1}"\[\$(disk_color)\]\W\[${creset}\]] "
+PS1=${PS1}"\[\$(disk_color)\]\W\[${creset}\] "
 PS1=${PS1}"\[\$(job_color)\]>\[${creset}\] "
 PS1=${PS1}"\[\e]0;[\u@\h] \w\a\]"
 ################################################################################
@@ -195,10 +195,18 @@ alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
 alias du='du -kh'
 alias df='df -kTh'
 
+
+
+# Networking ##############################################################
 alias localhttp='/usr/bin/python3 -m http.server --bind 127.0.0.1 8000'
 alias outhttp='/usr/bin/python3 -m http.server 8000'
 
-alias reloadrc='source /home/haxxul/.bashrc'
+alias wifis='sudo /usr/bin/netctl switch-to'
+
+alias reloadrc='source ~/.bashrc'
+alias git-update='git pull && git push'
+
+alias term='xfce4-terminal'
 
 # Screen Commands ##############################################################
 alias hdmi-left='xrandr --output HDMI1 --auto --left-of eDP1'
@@ -208,9 +216,9 @@ alias hdmi-down='xrandr --output HDMI1 --auto --below eDP1'
 alias hdmi-off='xrandr --output HDMI1 --off'
 
 
-# Disk Mounting ################################################################
-alias mountdat='udisksctl mount -b /dev/disk/by-uuid/4E01-888C'
-alias unmountdat='udisksctl unmount -b /dev/disk/by-uuid/4E01-888C'
+# Disk Shortcuts##############################################################
+alias mountdata='udiskctl mount -b /dev/disk/by-label/burchdata'
+alias unmountdata='udiskctl unmount -b /dev/disk/by-label/burchdata'
 
 ################################################################################
 
@@ -439,4 +447,5 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 export EDITOR='/usr/bin/vim'
+export XDG_RUNTIME_DIR=/run/user/`id -u`
 ################################################################################
