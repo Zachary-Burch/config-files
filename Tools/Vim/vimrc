@@ -12,6 +12,10 @@ syntax on
 " For plugins to load correctly
 filetype plugin indent on
 
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor = "latex"
+
+
 " TODO: Pick a leader key
 " let mapleader = ","
 
@@ -24,13 +28,12 @@ set number
 " Show file stats
 set ruler
 
+" Clipboard
+set clipboard=unnamedplus
+
 let javaScript_fold=1         " JavaScript
 
-
-augroup vimrc
-  au BufReadPre * setlocal foldmethod=syntax
-  au BufWinEnter * if &fdm == 'syntax' | setlocal foldmethod=manual | endif
-augroup END
+set foldmethod=syntax
 
 inoremap <F9> <C-O>za
 nnoremap <F9> za
