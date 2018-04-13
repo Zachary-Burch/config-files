@@ -202,6 +202,9 @@ alias localhttp='/usr/bin/python3 -m http.server --bind 127.0.0.1 8000'
 alias outhttp='/usr/bin/python3 -m http.server 8000'
 
 alias wifis='sudo /usr/bin/netctl switch-to'
+alias rednet-start='sudo systemctl start openvpn-client@rednet'
+alias rednet-stop='sudo systemctl stop openvpn-client@rednet'
+
 
 alias reloadrc='source ~/.bashrc'
 alias git-update='git pull && git push'
@@ -217,8 +220,8 @@ alias hdmi-off='xrandr --output HDMI1 --off'
 
 
 # Disk Shortcuts##############################################################
-alias mountdata='udiskctl mount -b /dev/disk/by-label/burchdata'
-alias unmountdata='udiskctl unmount -b /dev/disk/by-label/burchdata'
+alias mountdata='udisksctl mount -b /dev/disk/by-label/burchdata'
+alias unmountdata='udisksctl unmount -b /dev/disk/by-label/burchdata'
 
 ################################################################################
 
